@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primaryColor">#C3C0BC</color>
+    <color name="primaryColor2">#FF9800</color>
+    <color name="add">#4CAF50</color> <!-- Verde para 'Añadir' -->
+    <color name="restar">#F44336</color> <!-- Rojo para 'Eliminar' -->
+    <color name="colorAccent">#FF9800</color> <!-- Rojo para 'Eliminar' -->
+    <color name="colorBtnStart">#F01323</color> <!-- Rojo para 'Eliminar' -->
+
+    <color name="checkbox_background_color">#FFFFFF</color> <!-- Fondo blanco -->
+    <color name="checkbox_border_color">#4CAF50</color> <!-- Borde verde -->
+    <color name="checkbox_checked_color">#4CAF50</color> <!-- Color cuando se marca -->
+    <color name="checkbox_unchecked_color">#FF1101</color> <!-- Color cuando no se marca -->
+
+
+    <color name="colorSelected">#8BC34A</color> <!-- Cambia esto por el color de tu elección -->
+    <color name="colorUnselected">#E70707</color>
+
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center_vertical">
+
+
+    <!-- Nombre del ingrediente -->
+    <TextView
+        android:id="@+id/txtIngredienteNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Nombre del ingrediente"
+        android:textSize="16sp" />
+    <!-- Botón de restar, no visible por defecto -->
+    <ImageButton
+        android:id="@+id/btnDecrease"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="Restar cantidad"
+        android:visibility="invisible"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/icon_btn_remove_24_24" />
+
+    <!-- Cantidad del ingrediente -->
+    <TextView
+        android:id="@+id/txtIngredienteCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="16sp" />
+
+    <!-- Botón de sumar, visible -->
+    <ImageButton
+        android:id="@+id/btnIncrease"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="Sumar cantidad"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/icon_btn_add_24" />
+</LinearLayout>

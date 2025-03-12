@@ -1,0 +1,36 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo base para crear contraste -->
+    <item>
+        <shape>
+            <solid android:color="#E7E5E5" /> <!-- Fondo muy claro -->
+            <corners android:radius="20dp" /> <!-- Esquinas ligeramente más redondeadas -->
+        </shape>
+    </item>
+
+    <!-- Fondo principal con borde -->
+    <item
+        android:left="4dp"
+        android:top="4dp"
+        android:right="4dp"
+        android:bottom="4dp">
+        <shape>
+            <solid android:color="#08FFFFFF" /> <!-- Fondo blanco puro -->
+
+        </shape>
+    </item>
+
+    <!-- Sombra adicional -->
+    <item>
+        <shape>
+            <solid android:color="#20000000" /> <!-- Sombra negra translúcida -->
+            <corners android:radius="20dp" />
+        </shape>
+        <padding
+            android:left="2dp"
+            android:top="2dp"
+            android:right="2dp"
+            android:bottom="10dp" /> <!-- Desplazamiento de la sombra -->
+    </item>
+
+</layer-list>

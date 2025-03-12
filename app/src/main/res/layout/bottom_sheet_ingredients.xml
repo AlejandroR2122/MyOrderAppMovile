@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:layout_gravity="center">
+
+    <!-- Contenedor principal -->
+    <LinearLayout
+        android:layout_width="348dp"
+        android:layout_height="507dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Imagen del producto -->
+        <ImageView
+            android:id="@+id/imageViewProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:contentDescription="Imagen del producto"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hamburguesa" />
+
+        <!-- Título del producto -->
+        <TextView
+            android:id="@+id/textViewProductTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:paddingTop="12dp"
+            android:paddingBottom="8dp"
+            android:text="Hamburguesa"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Sección de ingredientes -->
+        <LinearLayout
+            android:id="@+id/ingredientsSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/quantityProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="Total : 0"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Lista de ingredientes editable -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/ingredientsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Aquí se agregan dinámicamente los ingredientes -->
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- Botones de acción -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="16dp">
+
+            <Button
+                android:id="@+id/buttonAddIngredient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Añadir" />
+
+            <Button
+                android:id="@+id/buttonRemoveIngredient"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quitar" />
+        </LinearLayout>
+
+        <!-- Botón para cerrar el diálogo -->
+        <Button
+            android:id="@+id/buttonCloseDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="12dp"
+            android:text="Enviar" />
+    </LinearLayout>
+</LinearLayout>

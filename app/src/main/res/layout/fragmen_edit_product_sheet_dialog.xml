@@ -1,0 +1,157 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Ingredientes.CustomProductQuantitySheetDialog">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground"
+            android:orientation="vertical"
+            android:padding="16dp">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Editar producto :"
+    android:textSize="24dp"
+    android:padding="12dp"
+
+    />
+            <!-- Imagen principal del producto -->
+            <ImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="Imagen del producto"
+                android:scaleType="centerInside"
+                android:src="@drawable/hamburguesa" />
+
+            <!-- Nombre del producto -->
+            <TextView
+                android:id="@+id/txtProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Hamburguesa con queso "
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Precio del producto -->
+            <TextView
+                android:id="@+id/txtProductPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="$0.00"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <!-- Descripción del producto -->
+            <TextView
+                android:id="@+id/txtProductDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray"
+                android:padding="8dp"
+                android:text="Esto es una vez una hamburguesa que tenia mucho mucho queso, y un dia se dio cuenta que "
+                android:textSize="16sp"
+
+                />
+
+            <!-- Línea divisora -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="@android:color/black" />
+
+            <!-- Lista de ingredientes QUE VIENEN DENTRO DEL PRODUCTO -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Ingredientes"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerProductIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Lista de ingredientes dinámica -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Ingredientes Extras"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="16dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/floating_border"
+                android:elevation="8dp"
+                android:padding="8dp" />
+
+            <!-- Controles de cantidad -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/btnDecrease"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Disminuir cantidad"
+                    android:src="@drawable/icon_btn_remove_24_24" />
+
+                <TextView
+                    android:id="@+id/txtQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/btnIncrease"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Aumentar cantidad"
+                    android:src="@drawable/icon_btn_add_24" />
+            </LinearLayout>
+
+            <!-- Botón para confirmar -->
+            <Button
+                
+                android:id="@+id/btnConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Confirmar"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

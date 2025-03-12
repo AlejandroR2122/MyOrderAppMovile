@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:gravity="center_vertical">
+
+    <!-- Nombre del ingrediente -->
+    <TextView
+        android:id="@+id/txtIngredienteNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Nombre del ingrediente"
+        android:textSize="16sp" />
+
+    <!-- CheckBox para seleccionar o deseleccionar el ingrediente -->
+    <CheckBox
+        android:id="@+id/checkBoxIngrediente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:checked="true"
+        android:buttonTint="@color/checkbox_checked_color"
+        android:button="@drawable/icon_btn_remove_24_24"
+ />
+
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+<!-- Layout con el botón con fondo naranja -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#F5F5F5">
+
+    <!-- Imagen del producto con borde redondeado -->
+    <ImageView
+        android:id="@+id/productImage"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="fitXY"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_image_border"/>
+
+    <!-- Nombre del producto con estilo creativo -->
+    <!-- Botón Siguiente con un fondo naranja -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="!!  DELICIOSO  !!"
+        android:textColor="#333333"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <!-- Botón Siguiente con un fondo naranja -->
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#545353"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Siguiente"
+        android:textColor="#FFFFFF"
+    android:backgroundTint="@color/black"
+    android:textSize="16sp"
+    android:layout_marginBottom="24dp"/>
+</LinearLayout>
