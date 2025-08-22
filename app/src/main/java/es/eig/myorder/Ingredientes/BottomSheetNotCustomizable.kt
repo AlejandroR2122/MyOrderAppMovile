@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.TextView
+import coil.load
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import es.eig.myorder.Carts.AdapterCarts
 import es.eig.myorder.R
+import es.eig.myorder.ServerConnection.ConnectionServer
 import es.eig.myorder.Variables.Producto
 import es.eig.myorder.ViewModelProviderSingleton
 import es.eig.myorder.viewmodel.ProductViewModel
@@ -32,22 +35,31 @@ class BottomSheetNotCustomizable : BottomSheetDialogFragment() {
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
                 behavior.isDraggable = true
 
-                setupProduct()
-                // Personalizamos los botones AÑADIR RESTAR CERRAR
-                view?.findViewById<Button>(R.id.buttonAddIngredient)?.setOnClickListener {
-                    addProduct()
-                }
-                view?.findViewById<Button>(R.id.buttonRemoveIngredient)?.setOnClickListener {
-                    subtractProduct()
-                }
-                view?.findViewById<Button>(R.id.buttonCloseDialog)?.setOnClickListener {
-                    addNewProducto()
-                    dismiss()
-                }
+
             }
         }
 
         return dialog
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupProduct()
+
+        view.findViewById<Button>(R.id.buttonAddIngredient)?.setOnClickListener {
+            addProduct()
+        }
+
+        view.findViewById<Button>(R.id.buttonRemoveIngredient)?.setOnClickListener {
+            subtractProduct()
+        }
+
+        view.findViewById<Button>(R.id.buttonCloseDialog)?.setOnClickListener {
+            addNewProducto()
+            dismiss()
+        }
     }
 
     override fun onCreateView(
@@ -60,14 +72,41 @@ class BottomSheetNotCustomizable : BottomSheetDialogFragment() {
     }
 
     private fun setupProduct() {
-        val quantityProduct = view?.findViewById<TextView>(R.id.quantityProduct)
+        val quantityText = view?.findViewById<TextView>(R.id.quantityProduct)
+        val imgProduct = view?.findViewById<ImageView>(R.id.imageViewProduct)
+        val nameProduct = view?.findViewById<TextView>(R.id.textViewProductTitle)
+        Log.e("ERROR " , imgProduct.toString())
+        Log.e("ERROR " , productoSelected?.imagen.toString())
+        if (productoSelected != null && quantityText != null && imgProduct != null) {
+            productoSelected!!.cantidad = 1
+            quantityText.text = "Total: ${productoSelected!!.cantidad}"
+            nameProduct?.text = productoSelected!!.nombre
+            setImg(imgProduct) // ya seguro
+        } else {
+            Log.e("BottomSheet", "Error: productoSelected o views son null")
+        }
+    }
 
-        if (quantityProduct != null) {
-            productoSelected?.let {
-                it.cantidad = 1
-                // Asegúrate de convertir 'cantidad' a una cadena
-                quantityProduct.text =
-                    "Total: " + it.cantidad.toString() // Convertimos a String si 'cantidad' es un número
+    fun setImg(imgProducto: ImageView) {
+        val connection = ConnectionServer()
+        val producto = productoSelected
+
+        if (producto == null) {
+            Log.e("IMAGE_LOAD", "Producto es null")
+            imgProducto.setImageResource(R.drawable.imagen_loanding)
+            return
+        }
+
+        connection.fetchDownloadUrl(producto.imagen) { imageUrl ->
+            if (imageUrl != null) {
+                imgProducto.load(imageUrl) {
+                    crossfade(true)
+                    placeholder(R.drawable.imagen_loanding)
+                    error(R.drawable.imagen_loanding)
+                }
+            } else {
+                Log.e("IMAGE_LOAD", "No se pudo obtener la URL de la imagen")
+                imgProducto.setImageResource(R.drawable.imagen_loanding)
             }
         }
     }

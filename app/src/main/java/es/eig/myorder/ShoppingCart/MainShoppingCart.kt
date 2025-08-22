@@ -1,12 +1,15 @@
 package es.eig.myorder.ShoppingCart
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import es.eig.myorder.R
@@ -57,20 +60,37 @@ class MainShoppingCart : AppCompatActivity() {
     }
 
     private fun showNoteDialog() {
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("Añadir nota")
+        val builder = AlertDialog.Builder(this, R.style.CustomAlertDialog)
 
-        val input = EditText(this)
-        input.hint = "Escribe tu nota aquí..."
-        builder.setView(input)
+        builder.setTitle("📝 Añadir nota")
+
+        val layout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(48, 24, 48, 0) // margen interno
+        }
+
+        val input = EditText(this).apply {
+            hint = "Escribe tu nota aquí..."
+            setHintTextColor(Color.GRAY)
+            setTextColor(Color.BLACK)
+            background = ContextCompat.getDrawable(context, R.drawable.edit_text_background)
+            setPadding(30, 20, 30, 20)
+        }
+
+        layout.addView(input)
+
+        builder.setView(layout)
 
         builder.setPositiveButton("Guardar") { _, _ ->
             nota = input.text.toString()
             Toast.makeText(this, "Nota añadida: $nota", Toast.LENGTH_SHORT).show()
         }
+
         builder.setNegativeButton("Cancelar", null)
+
         builder.show()
     }
+
 
     private fun sendOrder() {
         val products = viewModel.productosShoppingList.value ?: return

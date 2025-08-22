@@ -8,7 +8,7 @@
     <color name="restar">#F44336</color> <!-- Rojo para 'Eliminar' -->
     <color name="colorAccent">#FF9800</color> <!-- Rojo para 'Eliminar' -->
     <color name="colorBtnStart">#F01323</color> <!-- Rojo para 'Eliminar' -->
-
+    <color name="background_transparente">#00000000</color>
     <color name="checkbox_background_color">#FFFFFF</color> <!-- Fondo blanco -->
     <color name="checkbox_border_color">#4CAF50</color> <!-- Borde verde -->
     <color name="checkbox_checked_color">#4CAF50</color> <!-- Color cuando se marca -->
